@@ -197,7 +197,11 @@ nav a:hover{color:var(--ink)}
 .offer-card p{color:#F8DDD2;font-size:.92rem}
 .of-tag{font:600 .78rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#FFE3D6}
 .price .was{color:var(--muted);font:400 1rem var(--sans);text-decoration:line-through;text-decoration-color:#B23A2A;text-decoration-thickness:2px;margin-right:8px}
-.price .now{color:var(--accent)}
+.price .now{color:var(--accent);font-size:1.3rem}
+.price strong{white-space:nowrap}
+.price .per{font:500 .82rem var(--sans);color:var(--muted)}
+.price strong{text-align:right}
+.price .save{display:block;width:max-content;margin:6px 0 0 auto;background:#B23A2A;color:#fff;border-radius:999px;padding:4px 12px;font:700 .72rem/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .price-note{font-size:.82rem;font-weight:600;color:var(--accent);margin-top:-6px}
 .gift{display:flex;flex-direction:column;gap:3px;background:var(--accent-soft);border-radius:14px;padding:12px 14px;font-size:.92rem}
 .gift b{color:var(--accent);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
@@ -299,7 +303,7 @@ footer .wrap{display:grid;gap:8px}
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h5v-6h4v6h5V10"/></symbol>
 </svg>
 
-<div class="announce offer" data-offer hidden><a data-wa="offer" href="#contact" data-i18n="of_bar">🎄 Christmas offer: special first-year rent from {min} / month · sign by {date}</a></div>
+<div class="announce offer" data-offer hidden><a data-wa="offer" href="#contact" data-i18n="of_bar">🎄 Christmas offer: save up to {save} / month in your first year · sign by {date}</a></div>
 <div class="announce" data-no-offer><a data-wa="availability" href="#contact" data-i18n="an_txt">Only 1 covered car park bay left · Rooms can go quickly — message me early</a></div>
 
 <header id="top">
@@ -419,7 +423,7 @@ footer .wrap{display:grid;gap:8px}
     <div class="offer-card reveal" data-offer hidden>
       <div class="of-text">
         <span class="of-tag" data-i18n="of_tag">🎄 Christmas offer</span>
-        <h3 data-i18n="of_title">Christmas offer: a special rate for your first year</h3>
+        <h3 data-i18n="of_title">Save up to {save} / month in your first year</h3>
         <p data-i18n="of_cond">Master {m} · Bedroom 2 {r2} · Bedroom 3 {r3} per month (regular {wm} / {w2} / {w3}). Applies to the first year of your tenancy, for tenancies signed by {date}. Terms &amp; conditions apply.</p>
       </div>
       <a class="btn btn-light" data-wa="offer" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="of_btn">Claim this offer</span></a>
@@ -689,7 +693,7 @@ footer .wrap{display:grid;gap:8px}
     <div class="cta reveal">
       <h2 data-i18n="ct_title">Ready to see it in person?</h2>
       <p data-i18n="ct_d">Send me a WhatsApp with your preferred room and move-in date. I’ll get back to you with availability and rates.</p>
-      <p class="urgent" data-offer hidden data-i18n="of_cta">🎄 Christmas offer ends {date}: special first-year rent from {min} / month.</p>
+      <p class="urgent" data-offer hidden data-i18n="of_cta">🎄 Christmas offer ends {date}: save up to {save} / month in your first year.</p>
       <p class="urgent" data-i18n="ct_urg">Good rooms — and the last car park bay — can go quickly. Message me early to secure your preferred move-in date.</p>
       <a class="btn btn-light" data-wa="general" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="ct_btn">Chat on WhatsApp</span></a>
       <small data-i18n="ct_s">Viewings by appointment.</small>
@@ -744,7 +748,7 @@ const CONFIG = {
 /* ==================================== */
 
 const ZH = {
-  nav1:"为什么选这里", nav2:"房间", nav3:"公共空间", nav4:"设施", nav5:"常见问题", nav6:"位置", of_bar:"🎄 圣诞优惠：第一年租金低至 {min} / 月 · {date} 前签约", of_tag:"🎄 圣诞优惠", of_title:"圣诞优惠：第一年特别租金", of_cond:"主人房 {m} · 房间 2 {r2} · 房间 3 {r3}（每月，原价 {wm} / {w2} / {w3}）。适用于租期的第一年，{date} 前签订的租约。适用条款与细则。", of_btn:"领取优惠", of_cta:"🎄 圣诞优惠 {date} 结束：第一年租金低至 {min} / 月。", of_pn:"🎄 圣诞优惠价 · 适用于第一年租期", gift_h:"🎁 本房第一位租客的礼物", g_master:"2 个枕头 · 粉色被子套装 · 防水床垫保护套", g_room2:"2 个枕头 · 青绿色被子套装 · 防水床垫保护套", g_room3:"2 个枕头 · 青绿色被子套装", q11:"可以有访客或煮饭吗？", a11:"白天欢迎访客来公共区域，晚上 10 点前离开，不可过夜，因为这是女生专属单位。轻食没问题，有微波炉和热水壶。用完请收拾并开抽风。", hr_title:"住宿规则", hr1:"只租给女生", hr2:"只租马来西亚籍", hr3:"不可抽烟", hr4:"不可养宠物", hr5:"一房一人", q10:"谁可以租房？", a10:"这个单位只租给马来西亚籍的女生，每间房限 1 人入住。单位内不可以抽烟，也不可以养宠物。", h_owner:" · 屋主直租", p_agent:"和中介来回转话，等了好几天才有回复。", r_agentt:"直接找屋主", r_agentd:"每一条留言都是我自己回复，没有中介，也没有中间人，租客不用付中介费。", tm7:"中介费", tm7d:"无", q9:"有中介费吗？", a9:"没有。我是屋主，自己处理所有咨询，所以租客不用付中介费。租约费用仍需要支付，详见上方条件。", ft2b:"个人出租，与发展商无关。", props_note:"照片中的装饰品和道具（例如摆设、灯饰和小装饰）仅作拍摄用途，不包含在内。如有不确定的地方，请随时问我。", cta1:"想亲眼看看吗？", cta2:"不确定哪间适合你？空房情况常常变动，留言问我现在有哪些房间可租。照片里的装饰品和道具仅作拍摄用途，不包含在内。", cb2:"查询空房", cta3:"这一切，每天都在楼下。", cta4:"准备好了吗？告诉我你想要的房间和入住日期。", cb4:"用 WhatsApp 开始", cta5:"还有问题吗？很乐意帮你解答。", cb5:"WhatsApp 问我", an_txt:"车位仅剩 1 个 · 房间可能很快租出，请尽早留言", ct_urg:"好房间（包括最后一个车位）可能很快被租走，请尽早留言，预留你想要的入住日期。", navcta:"WhatsApp 咨询", navcta2:"WhatsApp",
+  nav1:"为什么选这里", nav2:"房间", nav3:"公共空间", nav4:"设施", nav5:"常见问题", nav6:"位置", of_bar:"🎄 圣诞优惠：第一年每月最多省 {save} · {date} 前签约", of_tag:"🎄 圣诞优惠", of_title:"第一年每月最多省 {save}", of_cond:"主人房 {m} · 房间 2 {r2} · 房间 3 {r3}（每月，原价 {wm} / {w2} / {w3}）。适用于租期的第一年，{date} 前签订的租约。适用条款与细则。", of_btn:"领取优惠", of_cta:"🎄 圣诞优惠 {date} 结束：第一年每月最多省 {save}。", of_pn:"🎄 圣诞优惠价 · 适用于第一年租期", gift_h:"🎁 本房第一位租客的礼物", g_master:"2 个枕头 · 粉色被子套装 · 防水床垫保护套", g_room2:"2 个枕头 · 青绿色被子套装 · 防水床垫保护套", g_room3:"2 个枕头 · 青绿色被子套装", q11:"可以有访客或煮饭吗？", a11:"白天欢迎访客来公共区域，晚上 10 点前离开，不可过夜，因为这是女生专属单位。轻食没问题，有微波炉和热水壶。用完请收拾并开抽风。", hr_title:"住宿规则", hr1:"只租给女生", hr2:"只租马来西亚籍", hr3:"不可抽烟", hr4:"不可养宠物", hr5:"一房一人", q10:"谁可以租房？", a10:"这个单位只租给马来西亚籍的女生，每间房限 1 人入住。单位内不可以抽烟，也不可以养宠物。", h_owner:" · 屋主直租", p_agent:"和中介来回转话，等了好几天才有回复。", r_agentt:"直接找屋主", r_agentd:"每一条留言都是我自己回复，没有中介，也没有中间人，租客不用付中介费。", tm7:"中介费", tm7d:"无", q9:"有中介费吗？", a9:"没有。我是屋主，自己处理所有咨询，所以租客不用付中介费。租约费用仍需要支付，详见上方条件。", ft2b:"个人出租，与发展商无关。", props_note:"照片中的装饰品和道具（例如摆设、灯饰和小装饰）仅作拍摄用途，不包含在内。如有不确定的地方，请随时问我。", cta1:"想亲眼看看吗？", cta2:"不确定哪间适合你？空房情况常常变动，留言问我现在有哪些房间可租。照片里的装饰品和道具仅作拍摄用途，不包含在内。", cb2:"查询空房", cta3:"这一切，每天都在楼下。", cta4:"准备好了吗？告诉我你想要的房间和入住日期。", cb4:"用 WhatsApp 开始", cta5:"还有问题吗？很乐意帮你解答。", cb5:"WhatsApp 问我", an_txt:"车位仅剩 1 个 · 房间可能很快租出，请尽早留言", ct_urg:"好房间（包括最后一个车位）可能很快被租走，请尽早留言，预留你想要的入住日期。", navcta:"WhatsApp 咨询", navcta2:"WhatsApp",
   h_eyebrow:"女生专属单位 · Setia Alam Sunsuria Forum",
   h_title:"拎包入住，<br>回家就是放松。",
   h_sub:"高楼层明亮单位，三间家具齐全、附冷气的房间——门禁加智能门锁、租金已含 WiFi，楼下就是度假村般的设施。",
@@ -847,14 +851,14 @@ function apply(l){
   lang=l; document.documentElement.lang=l==="zh"?"zh-Hans":"en";
   $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n; el.innerHTML=(l==="zh"&&ZH[k])?ZH[k]:el.dataset.en});
   $("#lang").textContent=l==="zh"?"EN":"中文";
-  const P=CONFIG.prices, O=CONFIG.offer.prices;
-  const tok=(t)=>t.replaceAll("{date}",fmtDate(l)).replaceAll("{min}",Object.values(O).sort((x,y)=>+x.replace(/\D/g,"")-+y.replace(/\D/g,""))[0])
+  const P=CONFIG.prices, O=CONFIG.offer.prices, num=(x)=>+String(x).replace(/\D/g,"");
+  const tok=(t)=>t.replaceAll("{date}",fmtDate(l)).replaceAll("{save}","RM "+Math.max(...Object.keys(O).map(k=>num(P[k])-num(O[k])))).replaceAll("{min}",Object.values(O).sort((x,y)=>+x.replace(/\D/g,"")-+y.replace(/\D/g,""))[0])
     .replaceAll("{m}",O.master).replaceAll("{r2}",O.room2).replaceAll("{r3}",O.room3).replaceAll("{wm}",P.master).replaceAll("{w2}",P.room2).replaceAll("{w3}",P.room3);
   $$("[data-offer]").forEach(el=>{el.querySelectorAll("[data-i18n]").forEach(x=>{x.innerHTML=tok(x.innerHTML)});
     if(el.dataset.i18n)el.innerHTML=tok(el.innerHTML)});
   $$("[data-price]").forEach(el=>{
-    const k=el.dataset.price, v=P[k], o=OFFER_ON&&O[k], per=l==="zh"?" / 月":" / month";
-    el.innerHTML=o?`<span class="was">${v}</span><span class="now">${o}</span>${per}`:(v?(v+per):(l==="zh"?"请询价":"Ask for rate"));
+    const k=el.dataset.price, v=P[k], o=OFFER_ON&&O[k], per=`<span class="per">${l==="zh"?" / 月":" / month"}</span>`;
+    el.innerHTML=o?`<span class="was">${v}</span><span class="now">${o}</span>${per}<span class="save">${l==="zh"?"省 RM "+(num(v)-num(o))+" / 月":"SAVE RM "+(num(v)-num(o))+" / month"}</span>`:(v?(v+per):(l==="zh"?"请询价":"Ask for rate"));
   });
   $$("[data-status]").forEach(el=>{el.textContent=CONFIG.status[el.dataset.status]||""});
   $$("[data-wa]").forEach(a=>{
