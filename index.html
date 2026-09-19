@@ -885,6 +885,22 @@ const MSG = {
       availability:"你好！请问现在有哪些房间有空？最早可以什么时候入住？",
       question:"你好！我对 Sunsuria Forum Residence 的房间有些问题想请教。"}
 };
+/* WhatsApp message = short intro + a form the visitor just fills in and sends */
+const FORM={
+  en:{lead:"To check availability and arrange a viewing, please fill in a few details (used only for this enquiry):",
+      fields:["Name:","Gender:","Occupation (working / studying):","Nationality:","Smoker? (Y/N):","Any pets? (Y/N):","How many persons will stay in the room?:","Which room are you interested in?:","Preferred move-in date:"],
+      rooms:{master:"Master Bedroom",room2:"Bedroom 2",room3:"Bedroom 3"}},
+  zh:{lead:"为了确认空房和安排看房，请填写以下资料（只用于这次咨询）：",
+      fields:["姓名：","性别：","职业（上班 / 读书）：","国籍：","抽烟？（是/否）：","有宠物吗？（是/否）：","一间房住几个人？：","想租哪一间？：","想什么时候入住？："],
+      rooms:{master:"主人房",room2:"房间 2",room3:"房间 3"}}
+};
+function waText(key,l){
+  const intro=MSG[l][key]||MSG[l].general;
+  if(key==="question")return intro;              // a quick question doesn't need the form
+  const f=FORM[l], room=f.rooms[key]||"";
+  const lines=f.fields.map((x,i)=>i===7&&room?x+" "+room:x);
+  return intro+"\n\n"+f.lead+"\n"+lines.join("\n");
+}
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 let lang="en";
 
@@ -917,7 +933,7 @@ function apply(l){
   $$("[data-status]").forEach(el=>{el.textContent=CONFIG.status[el.dataset.status]||""});
   $$("[data-wa]").forEach(a=>{
     const n=(CONFIG.whatsapp||"").replace(/\D/g,"");
-    if(n){a.href="https://wa.me/"+n+"?text="+encodeURIComponent(MSG[l][a.dataset.wa]||MSG[l].general);a.target="_blank";a.rel="noopener"}
+    if(n){a.href="https://wa.me/"+n+"?text="+encodeURIComponent(waText(a.dataset.wa,l));a.target="_blank";a.rel="noopener"}
     else{a.href="#contact";a.removeAttribute("target")}
   });
   buildPop(l);
