@@ -190,6 +190,44 @@ nav a:hover{color:var(--ink)}
 .view-imgs a:nth-child(2){margin-top:36px}
 .view-imgs img{width:100%;height:100%;object-fit:cover}
 
+/* pop-up + attention motion */
+.popup{position:fixed;inset:0;z-index:90;background:rgba(38,32,28,.58);display:none;align-items:center;justify-content:center;padding:20px}
+.popup.show{display:flex}
+.pop-card{position:relative;overflow:hidden;background:#fff;border-radius:28px;max-width:440px;width:100%;padding:34px 28px 22px;text-align:center;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.pop-card>*{position:relative}
+.pop-card .of-tag{color:var(--accent)}
+.pop-x{position:absolute!important;right:10px;top:8px;width:44px;height:44px;border:0;background:transparent;font-size:1.9rem;line-height:1;cursor:pointer;color:var(--muted);z-index:3}
+.pop-card h3{font-size:1.9rem;margin:8px 0 4px;color:var(--ink)}
+.pop-sub{color:var(--muted);margin-bottom:16px}
+.pop-prices{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:8px}
+.pop-prices li{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--accent-soft);border-radius:14px;padding:11px 16px;font-weight:500}
+.pop-prices s{color:var(--muted);margin-right:6px;font-weight:400;text-decoration-color:#B23A2A;text-decoration-thickness:2px}
+.pop-prices b{color:var(--accent);font-size:1.15rem;font-family:var(--serif)}
+.pop-note{font-size:.82rem;color:var(--muted);margin-bottom:16px}
+.pop-cta{width:100%;justify-content:center}
+.pop-later{display:block;margin:10px auto 0;background:none;border:0;color:var(--muted);font:500 .9rem var(--sans);cursor:pointer;text-decoration:underline;min-height:44px}
+.flakes{position:absolute!important;inset:0;pointer-events:none;overflow:hidden}
+.flakes i{position:absolute;top:-12px;width:8px;height:8px;border-radius:50%;background:#F3D3C8;opacity:.95}
+@media(max-width:640px){.popup{align-items:flex-end;padding:0}.pop-card{border-radius:26px 26px 0 0;max-width:none;padding-bottom:26px}}
+@media(prefers-reduced-motion:no-preference){
+  .popup.show{animation:fadeIn .3s ease both}
+  .popup.show .pop-card{animation:popIn .6s cubic-bezier(.2,1.5,.4,1) both}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes popIn{0%{opacity:0;transform:scale(.7) translateY(30px)}100%{opacity:1;transform:none}}
+  @media(max-width:640px){.popup.show .pop-card{animation-name:slideUp;animation-duration:.45s;animation-timing-function:ease-out}}
+  @keyframes slideUp{from{transform:translateY(100%)}to{transform:none}}
+  .flakes i{animation-name:fall;animation-timing-function:linear;animation-iteration-count:infinite}
+  @keyframes fall{to{transform:translateY(560px)}}
+  @keyframes pulse{0%{box-shadow:0 8px 20px -8px rgba(160,78,53,.55),0 0 0 0 rgba(160,78,53,.5)}70%{box-shadow:0 8px 20px -8px rgba(160,78,53,.55),0 0 0 16px rgba(160,78,53,0)}100%{box-shadow:0 8px 20px -8px rgba(160,78,53,.55),0 0 0 0 rgba(160,78,53,0)}}
+  @keyframes pulseW{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%{box-shadow:0 0 0 16px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  .hero .btn-primary,.fab,.pop-cta{animation:pulse 2.2s infinite}
+  .offer-card .btn-light{animation:pulseW 2.2s infinite}
+  .price .save{position:relative;overflow:hidden}
+  .price .save::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:shine 3s infinite}
+  @keyframes shine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+  .offer-card.in{animation:cardPop .8s cubic-bezier(.2,1.4,.4,1) both}
+  @keyframes cardPop{0%{transform:scale(.93);opacity:0}100%{transform:none;opacity:1}}
+}
 /* Christmas offer */
 .announce.offer{background:#5B2A1B}
 .offer-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;margin-bottom:28px;padding:26px 30px;border-radius:24px;color:#fff;background:linear-gradient(135deg,#7A3522,#A04E35);box-shadow:var(--shadow)}
@@ -424,7 +462,7 @@ footer .wrap{display:grid;gap:8px}
       <div class="of-text">
         <span class="of-tag" data-i18n="of_tag">🎄 Christmas offer · Last unit, limited spots</span>
         <h3 data-i18n="of_title">Save up to {save} / month in your first year</h3>
-        <p data-i18n="of_cond">Master {m} · Bedroom 2 {r2} · Bedroom 3 {r3} per month (regular {wm} / {w2} / {w3}). Applies to the first year of your tenancy. Offer ends {date} — last unit, limited spots. Terms &amp; conditions apply.</p>
+        <p data-i18n="of_cond">Master {m} · Bedroom 2 {r2} · Bedroom 3 {r3} per month (regular {wm} / {w2} / {w3}). Offer rate applies to the first year of your tenancy only; from the second year the rent returns to the regular price. Offer ends {date} — last unit, limited spots. Terms &amp; conditions apply.</p>
       </div>
       <a class="btn btn-light" data-wa="offer" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="of_btn">Claim this offer</span></a>
     </div>
@@ -452,7 +490,7 @@ footer .wrap{display:grid;gap:8px}
           </ul>
           <div class="gift"><b data-i18n="gift_h">🎁 Gift for the first tenant of this room</b><span data-i18n="g_master">2 pillows · pink comforter set · waterproof mattress protector</span></div>
           <div class="price"><small data-i18n="pr_lbl">Monthly rent</small><strong data-price="master"></strong></div>
-          <div class="price-note" data-offer hidden data-i18n="of_pn">🎄 Christmas offer · first year</div>
+          <div class="price-note" data-offer hidden data-i18n="of_pn">🎄 Christmas offer · first year only</div>
           <div class="room-actions">
             <button class="btn btn-ghost" type="button" data-video="tour-master" data-title="Master bedroom tour"><svg class="ico"><use href="#i-cam"/></svg><span data-i18n="vt_btn">Video tour</span></button>
             <a class="btn btn-primary" data-wa="master" href="#contact"><span data-i18n="enq">Enquire</span></a>
@@ -477,7 +515,7 @@ footer .wrap{display:grid;gap:8px}
           </ul>
           <div class="gift"><b data-i18n="gift_h">🎁 Gift for the first tenant of this room</b><span data-i18n="g_room2">2 pillows · teal comforter set · waterproof mattress protector</span></div>
           <div class="price"><small data-i18n="pr_lbl">Monthly rent</small><strong data-price="room2"></strong></div>
-          <div class="price-note" data-offer hidden data-i18n="of_pn">🎄 Christmas offer · first year</div>
+          <div class="price-note" data-offer hidden data-i18n="of_pn">🎄 Christmas offer · first year only</div>
           <div class="room-actions">
             <button class="btn btn-ghost" type="button" data-video="tour-room2" data-title="Bedroom 2 tour"><svg class="ico"><use href="#i-cam"/></svg><span data-i18n="vt_btn">Video tour</span></button>
             <a class="btn btn-primary" data-wa="room2" href="#contact"><span data-i18n="enq">Enquire</span></a>
@@ -502,7 +540,7 @@ footer .wrap{display:grid;gap:8px}
           </ul>
           <div class="gift"><b data-i18n="gift_h">🎁 Gift for the first tenant of this room</b><span data-i18n="g_room3">2 pillows · teal comforter set</span></div>
           <div class="price"><small data-i18n="pr_lbl">Monthly rent</small><strong data-price="room3"></strong></div>
-          <div class="price-note" data-offer hidden data-i18n="of_pn">🎄 Christmas offer · first year</div>
+          <div class="price-note" data-offer hidden data-i18n="of_pn">🎄 Christmas offer · first year only</div>
           <div class="room-actions">
             <button class="btn btn-ghost" type="button" data-video="tour-room3" data-title="Bedroom 3 tour"><svg class="ico"><use href="#i-cam"/></svg><span data-i18n="vt_btn">Video tour</span></button>
             <a class="btn btn-primary" data-wa="room3" href="#contact"><span data-i18n="enq">Enquire</span></a>
@@ -712,6 +750,21 @@ footer .wrap{display:grid;gap:8px}
 
 <a class="btn btn-primary fab" data-wa="general" href="#contact" aria-label="WhatsApp"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="navcta2">WhatsApp</span></a>
 
+<!-- offer pop-up -->
+<div class="popup" id="offer-pop" data-offer hidden role="dialog" aria-modal="true" aria-labelledby="pop-title">
+  <div class="pop-card">
+    <button class="pop-x" type="button" aria-label="Close">×</button>
+    <div class="flakes" aria-hidden="true"><i style="left:6%;animation-duration:6s;animation-delay:-1s"></i><i style="left:16%;animation-duration:7s;animation-delay:-3s"></i><i style="left:27%;animation-duration:5s;animation-delay:-2s"></i><i style="left:38%;animation-duration:8s;animation-delay:-5s"></i><i style="left:49%;animation-duration:6s;animation-delay:-4s"></i><i style="left:60%;animation-duration:7s;animation-delay:-1s"></i><i style="left:70%;animation-duration:5s;animation-delay:-3s"></i><i style="left:80%;animation-duration:8s;animation-delay:-2s"></i><i style="left:90%;animation-duration:6s;animation-delay:-4s"></i><i style="left:96%;animation-duration:7s;animation-delay:-6s"></i></div>
+    <span class="of-tag" data-i18n="of_tag">🎄 Christmas offer · Last unit, limited spots</span>
+    <h3 id="pop-title" data-i18n="pop_title">Save up to {save} / month</h3>
+    <p class="pop-sub" data-i18n="pop_sub">A special rate for your first year</p>
+    <ul class="pop-prices" id="pop-prices"></ul>
+    <p class="pop-note" data-i18n="pop_note">First year only — from the second year the rent returns to the regular price. Ends {date}. Last unit, limited spots!</p>
+    <a class="btn btn-primary pop-cta" data-wa="offer" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="pop_cta">Claim this offer on WhatsApp</span></a>
+    <button class="pop-later" type="button" data-i18n="pop_later">Maybe later</button>
+  </div>
+</div>
+
 <!-- lightbox / video modal -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Media viewer" hidden>
   <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
@@ -748,7 +801,7 @@ const CONFIG = {
 /* ==================================== */
 
 const ZH = {
-  nav1:"为什么选这里", nav2:"房间", nav3:"公共空间", nav4:"设施", nav5:"常见问题", nav6:"位置", of_bar:"🎄 圣诞优惠：第一年每月最多省 {save} · 最后一个单位，名额有限，欲租从速！· {date} 结束", of_tag:"🎄 圣诞优惠 · 最后一个单位，名额有限", of_title:"第一年每月最多省 {save}", of_cond:"主人房 {m} · 房间 2 {r2} · 房间 3 {r3}（每月，原价 {wm} / {w2} / {w3}）。适用于租期的第一年。优惠 {date} 结束，最后一个单位，名额有限。适用条款与细则。", of_btn:"领取优惠", of_cta:"🎄 圣诞优惠 {date} 结束 · 最后一个单位，名额有限：第一年每月最多省 {save}。", of_pn:"🎄 圣诞优惠 · 第一年", gift_h:"🎁 本房第一位租客的礼物", g_master:"2 个枕头 · 粉色被子套装 · 防水床垫保护套", g_room2:"2 个枕头 · 青绿色被子套装 · 防水床垫保护套", g_room3:"2 个枕头 · 青绿色被子套装", q11:"可以有访客或煮饭吗？", a11:"白天欢迎访客来公共区域，晚上 10 点前离开，不可过夜，因为这是女生专属单位。轻食没问题，有微波炉和热水壶。用完请收拾并开抽风。", hr_title:"住宿规则", hr1:"只租给女生", hr2:"只租马来西亚籍", hr3:"不可抽烟", hr4:"不可养宠物", hr5:"一房一人", q10:"谁可以租房？", a10:"这个单位只租给马来西亚籍的女生，每间房限 1 人入住。单位内不可以抽烟，也不可以养宠物。", h_owner:" · 屋主直租", p_agent:"和中介来回转话，等了好几天才有回复。", r_agentt:"直接找屋主", r_agentd:"每一条留言都是我自己回复，没有中介，也没有中间人，租客不用付中介费。", tm7:"中介费", tm7d:"无", q9:"有中介费吗？", a9:"没有。我是屋主，自己处理所有咨询，所以租客不用付中介费。租约费用仍需要支付，详见上方条件。", ft2b:"个人出租，与发展商无关。", props_note:"照片中的装饰品和道具（例如摆设、灯饰和小装饰）仅作拍摄用途，不包含在内。如有不确定的地方，请随时问我。", cta1:"想亲眼看看吗？", cta2:"不确定哪间适合你？空房情况常常变动，留言问我现在有哪些房间可租。照片里的装饰品和道具仅作拍摄用途，不包含在内。", cb2:"查询空房", cta3:"这一切，每天都在楼下。", cta4:"准备好了吗？告诉我你想要的房间和入住日期。", cb4:"用 WhatsApp 开始", cta5:"还有问题吗？很乐意帮你解答。", cb5:"WhatsApp 问我", an_txt:"车位仅剩 1 个 · 房间可能很快租出，请尽早留言", ct_urg:"好房间（包括最后一个车位）可能很快被租走，请尽早留言，预留你想要的入住日期。", navcta:"WhatsApp 咨询", navcta2:"WhatsApp",
+  nav1:"为什么选这里", nav2:"房间", nav3:"公共空间", nav4:"设施", nav5:"常见问题", nav6:"位置", pop_title:"第一年每月最多省 {save}", pop_sub:"第一年享特别租金", pop_note:"仅限第一年，第二年起租金恢复原价。{date} 结束，最后一个单位，名额有限！", pop_cta:"在 WhatsApp 领取优惠", pop_later:"稍后再说", of_bar:"🎄 圣诞优惠：第一年每月最多省 {save} · 最后一个单位，名额有限，欲租从速！· {date} 结束", of_tag:"🎄 圣诞优惠 · 最后一个单位，名额有限", of_title:"第一年每月最多省 {save}", of_cond:"主人房 {m} · 房间 2 {r2} · 房间 3 {r3}（每月，原价 {wm} / {w2} / {w3}）。优惠价只适用于租期的第一年，第二年起租金恢复原价。优惠 {date} 结束，最后一个单位，名额有限。适用条款与细则。", of_btn:"领取优惠", of_cta:"🎄 圣诞优惠 {date} 结束 · 最后一个单位，名额有限：第一年每月最多省 {save}。", of_pn:"🎄 圣诞优惠 · 仅第一年", gift_h:"🎁 本房第一位租客的礼物", g_master:"2 个枕头 · 粉色被子套装 · 防水床垫保护套", g_room2:"2 个枕头 · 青绿色被子套装 · 防水床垫保护套", g_room3:"2 个枕头 · 青绿色被子套装", q11:"可以有访客或煮饭吗？", a11:"白天欢迎访客来公共区域，晚上 10 点前离开，不可过夜，因为这是女生专属单位。轻食没问题，有微波炉和热水壶。用完请收拾并开抽风。", hr_title:"住宿规则", hr1:"只租给女生", hr2:"只租马来西亚籍", hr3:"不可抽烟", hr4:"不可养宠物", hr5:"一房一人", q10:"谁可以租房？", a10:"这个单位只租给马来西亚籍的女生，每间房限 1 人入住。单位内不可以抽烟，也不可以养宠物。", h_owner:" · 屋主直租", p_agent:"和中介来回转话，等了好几天才有回复。", r_agentt:"直接找屋主", r_agentd:"每一条留言都是我自己回复，没有中介，也没有中间人，租客不用付中介费。", tm7:"中介费", tm7d:"无", q9:"有中介费吗？", a9:"没有。我是屋主，自己处理所有咨询，所以租客不用付中介费。租约费用仍需要支付，详见上方条件。", ft2b:"个人出租，与发展商无关。", props_note:"照片中的装饰品和道具（例如摆设、灯饰和小装饰）仅作拍摄用途，不包含在内。如有不确定的地方，请随时问我。", cta1:"想亲眼看看吗？", cta2:"不确定哪间适合你？空房情况常常变动，留言问我现在有哪些房间可租。照片里的装饰品和道具仅作拍摄用途，不包含在内。", cb2:"查询空房", cta3:"这一切，每天都在楼下。", cta4:"准备好了吗？告诉我你想要的房间和入住日期。", cb4:"用 WhatsApp 开始", cta5:"还有问题吗？很乐意帮你解答。", cb5:"WhatsApp 问我", an_txt:"车位仅剩 1 个 · 房间可能很快租出，请尽早留言", ct_urg:"好房间（包括最后一个车位）可能很快被租走，请尽早留言，预留你想要的入住日期。", navcta:"WhatsApp 咨询", navcta2:"WhatsApp",
   h_eyebrow:"女生专属单位 · Setia Alam Sunsuria Forum",
   h_title:"拎包入住，<br>回家就是放松。",
   h_sub:"高楼层明亮单位，三间家具齐全、附冷气的房间——门禁加智能门锁、租金已含 WiFi，楼下就是度假村般的设施。",
@@ -866,6 +919,7 @@ function apply(l){
     if(n){a.href="https://wa.me/"+n+"?text="+encodeURIComponent(MSG[l][a.dataset.wa]||MSG[l].general);a.target="_blank";a.rel="noopener"}
     else{a.href="#contact";a.removeAttribute("target")}
   });
+  buildPop(l);
   try{localStorage.setItem("lang",l)}catch(e){}
 }
 $("#lang").addEventListener("click",()=>apply(lang==="en"?"zh":"en"));
@@ -878,6 +932,27 @@ apply(saved||"en");
   const io2=new IntersectionObserver(es=>{es.forEach(e=>{e.isIntersecting?vis.add(e.target):vis.delete(e.target)});
     fab.style.opacity=vis.size?"0":"1"; fab.style.pointerEvents=vis.size?"none":"auto"},{threshold:.15});
   $$(".sec-cta,.cta,.cta-row,.room-actions,.btn-row,footer").forEach(el=>io2.observe(el));})();
+
+function buildPop(l){
+  const ul=$("#pop-prices"); if(!ul)return;
+  const P=CONFIG.prices,O=CONFIG.offer.prices,
+    n=l==="zh"?{master:"主人房",room2:"房间 2",room3:"房间 3"}:{master:"Master Bedroom",room2:"Bedroom 2",room3:"Bedroom 3"};
+  ul.innerHTML=["master","room2","room3"].map(k=>`<li><span>${n[k]}</span><span><s>${P[k]}</s><b>${O[k]}</b></span></li>`).join("");
+}
+(function(){ /* offer pop-up: once per visit, ~5s after load, easy to close */
+  const pop=$("#offer-pop"); if(!pop||!OFFER_ON)return;
+  let seen=false; try{seen=sessionStorage.getItem("offerPop")==="1"}catch(e){}
+  if(seen)return;
+  let opener=null;
+  const close=()=>{pop.classList.remove("show");document.body.style.overflow="";try{sessionStorage.setItem("offerPop","1")}catch(e){}; if(opener&&opener.focus)opener.focus()};
+  const open=()=>{ if($("#lb").classList.contains("open")){setTimeout(open,3000);return}
+    opener=document.activeElement; pop.classList.add("show"); document.body.style.overflow="hidden"; $(".pop-x",pop).focus()};
+  $(".pop-x",pop).addEventListener("click",close); $(".pop-later",pop).addEventListener("click",close);
+  $(".pop-cta",pop).addEventListener("click",()=>{try{sessionStorage.setItem("offerPop","1")}catch(e){}; pop.classList.remove("show");document.body.style.overflow=""});
+  pop.addEventListener("click",e=>{if(e.target===pop)close()});
+  addEventListener("keydown",e=>{if(e.key==="Escape"&&pop.classList.contains("show"))close()});
+  setTimeout(open,5000);
+})();
 
 /* header shadow */
 const hdr=$("header"); const onScroll=()=>hdr.classList.toggle("stuck",scrollY>8);
