@@ -7,9 +7,8 @@
 <meta name="description" content="Female-only, fully furnished rooms for rent in a bright high-floor unit at Sunsuria Forum, Setia Alam. Air-con, smart lock, WiFi included and resort-style facilities downstairs.">
 <meta property="og:title" content="Room for Rent in Setia Alam · Sunsuria Forum Residence">
 <meta property="og:description" content="Female-only, fully furnished rooms with air-con, smart lock and resort-style facilities. Move in with just a suitcase.">
-<meta property="og:image" content="https://setiaalam-rooms.github.io/assets/img/mas-bed.webp">
+<meta property="og:image" content="assets/img/mas-bed.webp">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://setiaalam-rooms.github.io/">
 <meta name="theme-color" content="#FAF7F2">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A04E35'/%3E%3Cpath d='M8 15l8-6 8 6v8h-5v-5h-6v5H8z' fill='%23FAF7F2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -288,6 +287,23 @@ nav a:hover{color:var(--ink)}
 .step h3{font-size:1.25rem;margin-bottom:8px}
 .step p{color:var(--muted);font-size:1rem}
 
+/* real rooms vs partition */
+.real-grid{display:grid;gap:16px}
+@media(min-width:800px){.real-grid{grid-template-columns:1fr 1.25fr;gap:20px}}
+.rc{border-radius:var(--r);padding:26px 26px 22px;border:1px solid var(--line);background:var(--surface)}
+.rc h3{font-size:1.15rem;margin-bottom:14px}
+.rc ul{list-style:none;padding:0;display:grid;gap:12px}
+.rc li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:1rem;line-height:1.5}
+.rc li i{font-style:normal;font-weight:700;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;line-height:1;margin-top:1px}
+.rc.no{background:transparent;border-style:dashed;align-self:start}
+.rc.no h3,.rc.no li{color:var(--muted)}
+.rc.no li i{background:#EFE8DE;color:#8A7F73}
+.rc.yes{border-color:var(--accent);box-shadow:var(--shadow)}
+.rc.yes li i{background:var(--accent);color:#fff}
+.rc.yes li b{font-weight:600}
+.real-img{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.real-img a{display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.real-img img{width:100%;height:100%;object-fit:cover}
 /* faq */
 .faq{max-width:820px;margin-inline:auto}
 details{border-bottom:1px solid var(--line);padding:4px 0}
@@ -377,13 +393,14 @@ footer .wrap{display:grid;gap:8px}
     <div>
       <span class="eyebrow"><span data-i18n="h_eyebrow">Female-only unit · Sunsuria Forum, Setia Alam</span><span data-owner data-i18n="h_owner"> · Direct from owner</span></span>
       <h1 data-i18n="h_title">Move in with just a suitcase.</h1>
-      <p class="sub" data-i18n="h_sub">Three fully furnished, air-conditioned rooms in a bright, high-floor unit — gated entrance plus smart lock, WiFi included, and resort-style facilities right downstairs.</p>
+      <p class="sub" data-i18n="h_sub">Three real, fully furnished bedrooms — not partitioned rooms — in a bright high-floor unit with a shared living room and balcony view. Gated entrance, smart lock, WiFi included, resort facilities downstairs.</p>
       <div class="cta-row">
         <a class="btn btn-primary" data-wa="general" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="h_cta1">Book a viewing</span></a>
         <a class="btn btn-ghost" href="#rooms" data-i18n="h_cta2">See the rooms</a>
       </div>
       <ul class="chips">
         <li><svg class="ico"><use href="#i-shield"/></svg><span data-i18n="c0">Female-only</span></li>
+        <li><svg class="ico"><use href="#i-home"/></svg><span data-i18n="c7">Real rooms, no partitions</span></li>
         <li><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="c1">Fully furnished</span></li>
         <li><svg class="ico"><use href="#i-snow"/></svg><span data-i18n="c6">Air-conditioned</span></li>
         <li><svg class="ico"><use href="#i-wifi"/></svg><span data-i18n="c5">WiFi included</span></li>
@@ -403,11 +420,47 @@ footer .wrap{display:grid;gap:8px}
 <section class="facts">
   <div class="wrap reveal">
     <ul>
-      <li><b data-i18n="f1t">3 bedrooms</b><span data-i18n="f1d">Master with private ensuite, plus two more rooms</span></li>
+      <li><b data-i18n="f1t">3 bedrooms</b><span data-i18n="f1d">Real bedrooms, no partitions — master has a private ensuite</span></li>
       <li><b data-i18n="f2t">Fully furnished</b><span data-i18n="f2d">Bed with brand‑new mattress, desk, wardrobe, fan &amp; air‑con</span></li>
       <li><b data-i18n="f3t">Safe &amp; secure</b><span data-i18n="f3d">Gated entrance, smart lock, 24-hour security</span></li>
       <li><b data-i18n="f4t">Resort facilities</b><span data-i18n="f4d">Pool, gym, BBQ, playground &amp; more</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- REAL ROOMS -->
+<section id="real">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow" data-i18n="rl_eyebrow">Not what you might expect</span>
+      <h2 data-i18n="rl_title">“Room rental” here does not mean a partitioned room.</h2>
+      <p class="lede" data-i18n="rl_lede">No divider boards, no cubicle squeezed into a living room. You rent a real bedroom in a proper home — with space to breathe and a living room to relax in.</p>
+    </div>
+    <div class="real-grid reveal">
+      <div class="rc no">
+        <h3 data-i18n="rl_no_t">The usual “room rental”</h3>
+        <ul>
+          <li><i>✕</i><span data-i18n="rl_n1">A partition board dividing up a living room</span></li>
+          <li><i>✕</i><span data-i18n="rl_n2">Thin walls and very little privacy</span></li>
+          <li><i>✕</i><span data-i18n="rl_n3">No living room — your bed is your whole world</span></li>
+          <li><i>✕</i><span data-i18n="rl_n4">Small or no window, no view</span></li>
+        </ul>
+      </div>
+      <div class="rc yes">
+        <h3 data-i18n="rl_yes_t">Here, it’s a real home</h3>
+        <ul>
+          <li><i>✓</i><span data-i18n="rl_y1"><b>A real bedroom</b> with proper walls and its own door — no partition</span></li>
+          <li><i>✓</i><span data-i18n="rl_y2"><b>Your own private space</b>, fully furnished with bed, desk and wardrobe</span></li>
+          <li><i>✓</i><span data-i18n="rl_y3"><b>A shared living room</b>, dining area and kitchen to unwind in</span></li>
+          <li><i>✓</i><span data-i18n="rl_y4"><b>Big windows and a balcony</b> with an open view over the city</span></li>
+        </ul>
+        <div class="real-img">
+          <a href="assets/img/com-living-view.webp" data-lb="real" data-cap="A shared living room, not a partitioned room"><img src="assets/img/com-living-view-sm.webp" alt="Bright shared living room with sofa and coffee table" loading="lazy" width="800" height="600"></a>
+          <a href="assets/img/view-living.webp" data-lb="real" data-cap="View from the living room balcony"><img src="assets/img/view-living-sm.webp" alt="View from the living room balcony over the city" loading="lazy" width="450" height="800"></a>
+        </div>
+      </div>
+    </div>
+    <div class="sec-cta reveal"><p data-i18n="rl_cta">See the real rooms for yourself.</p><a class="btn btn-primary" data-wa="viewing" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="h_cta1">Book a viewing</span></a></div>
   </div>
 </section>
 
@@ -813,14 +866,20 @@ const ZH = {
   nav1:"为什么选这里", nav2:"房间", nav3:"公共空间", nav4:"设施", nav5:"常见问题", nav6:"位置", of_tab:"🎄 优惠 {date} 结束", pop_title:"第一年每月最多省 {save}", pop_sub:"第一年享特别租金", pop_note:"仅限第一年，第二年起租金恢复原价。{date} 结束，最后一个单位，名额有限！", pop_cta:"在 WhatsApp 领取优惠", pop_later:"稍后再说", of_bar:"🎄 圣诞优惠：第一年每月最多省 {save} · 最后一个单位，名额有限，欲租从速！· {date} 结束", of_tag:"🎄 圣诞优惠 · 最后一个单位，名额有限", of_title:"第一年每月最多省 {save}", of_cond:"主人房 {m} · 房间 2 {r2} · 房间 3 {r3}（每月，原价 {wm} / {w2} / {w3}）。优惠价只适用于租期的第一年，第二年起租金恢复原价。优惠 {date} 结束，最后一个单位，名额有限。适用条款与细则。", of_btn:"领取优惠", of_cta:"🎄 圣诞优惠 {date} 结束 · 最后一个单位，名额有限：第一年每月最多省 {save}。", of_pn:"🎄 圣诞优惠 · 仅第一年", gift_h:"🎁 本房第一位租客的礼物", g_master:"2 个枕头 · 粉色被子套装 · 防水床垫保护套", g_room2:"2 个枕头 · 青绿色被子套装 · 防水床垫保护套", g_room3:"2 个枕头 · 青绿色被子套装", q11:"可以有访客或煮饭吗？", a11:"白天欢迎访客来公共区域，晚上 10 点前离开，不可过夜，因为这是女生专属单位。轻食没问题，有微波炉和热水壶。用完请收拾并开抽风。", hr_title:"住宿规则", hr1:"只租给女生", hr2:"只租马来西亚籍", hr3:"不可抽烟", hr4:"不可养宠物", hr5:"一房一人", q10:"谁可以租房？", a10:"这个单位只租给马来西亚籍的女生，每间房限 1 人入住。单位内不可以抽烟，也不可以养宠物。", h_owner:" · 屋主直租", p_agent:"和中介来回转话，等了好几天才有回复。", r_agentt:"直接找屋主", r_agentd:"每一条留言都是我自己回复，没有中介，也没有中间人，租客不用付中介费。", tm7:"中介费", tm7d:"无", q9:"有中介费吗？", a9:"没有。我是屋主，自己处理所有咨询，所以租客不用付中介费。租约费用仍需要支付，详见上方条件。", ft2b:"个人出租，与发展商无关。", props_note:"照片中的装饰品和道具（例如摆设、灯饰和小装饰）仅作拍摄用途，不包含在内。如有不确定的地方，请随时问我。", cta1:"想亲眼看看吗？", cta2:"不确定哪间适合你？空房情况常常变动，留言问我现在有哪些房间可租。照片里的装饰品和道具仅作拍摄用途，不包含在内。", cb2:"查询空房", cta3:"这一切，每天都在楼下。", cta4:"准备好了吗？告诉我你想要的房间和入住日期。", cb4:"用 WhatsApp 开始", cta5:"还有问题吗？很乐意帮你解答。", cb5:"WhatsApp 问我", an_txt:"车位仅剩 1 个 · 房间可能很快租出，请尽早留言", ct_urg:"好房间（包括最后一个车位）可能很快被租走，请尽早留言，预留你想要的入住日期。", navcta:"WhatsApp 咨询", navcta2:"WhatsApp",
   h_eyebrow:"女生专属单位 · Setia Alam Sunsuria Forum",
   h_title:"拎包入住，<br>回家就是放松。",
-  h_sub:"高楼层明亮单位，三间家具齐全、附冷气的房间——门禁加智能门锁、租金已含 WiFi，楼下就是度假村般的设施。",
+  h_sub:"三间真正的卧室——不是隔房——家具齐全，位于明亮的高楼层单位，有共用客厅和阳台景观。门禁加智能门锁、租金含 WiFi，楼下就是度假村般的设施。",
   h_cta1:"预约看房", h_cta2:"看房间",
-  c0:"女生专属", c1:"家具齐全", c2:"智能门锁", c4:"泳池 & 健身房", c5:"含 WiFi", c6:"有冷气",
+  c0:"女生专属", c1:"家具齐全", c2:"智能门锁", c4:"泳池 & 健身房", c5:"含 WiFi", c6:"有冷气", c7:"真房间，不是隔房",
   badge:"本单位真实拍摄",
-  f1t:"3 间卧室", f1d:"主人房附独立浴室，另有两间房",
+  f1t:"3 间卧室", f1d:"真正的卧室，不是隔房——主人房附独立浴室",
   f2t:"家具齐全", f2d:"床（全新床垫）、书桌、衣柜、风扇和冷气",
   f3t:"安全有保障", f3d:"门禁、智能门锁、24 小时保安",
   f4t:"度假式设施", f4d:"泳池、健身房、BBQ、游乐场等",
+  rl_eyebrow:"和你想的不一样", rl_title:"这里的「出租房间」，不是隔房。",
+  rl_lede:"没有隔板，也不是在客厅里硬隔出一个小格子。你租的是一间真正的卧室，住在一个像样的家里——有空间喘口气，也有客厅可以放松。",
+  rl_no_t:"一般的「出租房间」", rl_n1:"用隔板把客厅隔成几个小房间", rl_n2:"墙很薄，几乎没有隐私", rl_n3:"没有客厅——一张床就是你的全部世界", rl_n4:"窗很小甚至没有窗，看不到风景",
+  rl_yes_t:"这里，是一个真正的家",
+  rl_y1:"<b>真正的卧室</b>，有实墙和自己的房门——不是隔板", rl_y2:"<b>属于你的私人空间</b>，床、书桌、衣柜一应俱全", rl_y3:"<b>共用客厅</b>、饭厅和厨房，回家可以真正放松", rl_y4:"<b>大窗和阳台</b>，看得到开阔的城市景色",
+  rl_cta:"亲自来看看真正的房间。",
   p_eyebrow:"是不是很熟悉？", p_title:"找房间，不应该像在赌运气。", p_lede:"常见的麻烦，我们在你搬进来之前就处理好了。",
   p0:"晚归回家，心里总有点不踏实。",
   r0t:"女生专属单位，双重保安", r0d:"整个单位只租给女生。大楼有门禁，单位大门装智能门锁，还有 24 小时保安——晚归也安心。",
