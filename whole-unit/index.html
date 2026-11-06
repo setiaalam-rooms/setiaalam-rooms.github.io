@@ -375,7 +375,7 @@ footer .wrap{display:grid;gap:8px}
       <a href="#shared" data-i18n="w_nav2">Living space</a>
       <a href="#facilities" data-i18n="nav4">Facilities</a>
       <a href="#location" data-i18n="nav6">Location</a>
-      <a href="#terms" data-i18n="w_nav3">Terms</a>
+      <a href="#terms" data-i18n="w_nav3">Details</a>
       <a href="#faq" data-i18n="nav5">FAQ</a>
     </nav>
     <button class="lang" id="lang" type="button" aria-label="Switch language">中文</button>
@@ -617,23 +617,12 @@ footer .wrap{display:grid;gap:8px}
 <section id="terms">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow" data-i18n="w_t_eyebrow">The essentials</span>
-      <h2 data-i18n="w_t_title">Simple, upfront terms.</h2>
+      <span class="eyebrow" data-i18n="w_t_eyebrow">Rental details</span>
+      <h2 data-i18n="w_t_title">Rent and terms — just ask.</h2>
     </div>
-    <div class="terms reveal">
-      <dl>
-        <div><dt data-i18n="w_t1">Monthly rent</dt><dd>RM 2,800</dd></div>
-        <div><dt data-i18n="w_t2">WiFi</dt><dd data-i18n="w_t2d">Included in the rent</dd></div>
-        <div><dt data-i18n="w_t3">Water &amp; electricity</dt><dd data-i18n="w_t3d">Paid by tenant, per bill</dd></div>
-        <div><dt data-i18n="w_t4">Car park</dt><dd data-i18n="w_t4d">1 covered bay</dd></div>
-        <div><dt data-i18n="w_t6">Minimum tenancy</dt><dd data-i18n="w_tbc">To be confirmed</dd></div>
-        <div><dt data-i18n="w_t7">Advance rental</dt><dd data-i18n="w_t7d">1 month (RM 2,800)</dd></div>
-        <div><dt data-i18n="w_t8">Security deposit</dt><dd data-i18n="w_t8d">2 months (RM 5,600)</dd></div>
-        <div><dt data-i18n="w_t9">Utilities deposit</dt><dd data-i18n="w_t9d">1 month (RM 2,800)</dd></div>
-        <div><dt data-i18n="w_t10">Access card</dt><dd data-i18n="w_tbc">To be confirmed</dd></div>
-        <div><dt data-i18n="tm4">Tenancy agreement</dt><dd data-i18n="tm4d">Agreement fees apply</dd></div>
-      </dl>
-      <p class="disc" data-i18n="tm_disc">Terms &amp; conditions apply. Fees may change from time to time — please enquire for exact rates.</p>
+    <div class="terms reveal" style="text-align:center">
+      <p data-i18n="w_t_d">Rent, deposits and tenancy terms are shared directly — send me a message and I’ll go through everything with you.</p>
+      <a class="btn btn-primary" data-wa="question" href="#contact" style="margin-top:18px"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="cb5">Ask me on WhatsApp</span></a>
     </div>
   </div>
 </section>
@@ -648,10 +637,10 @@ footer .wrap{display:grid;gap:8px}
     <div class="faq reveal">
       <details><summary data-i18n="q1">Can I see the place before deciding?</summary><p data-i18n="w_a1">Yes. You can browse the photos and video tours on this page first, then arrange a viewing to see the unit in person.</p></details>
       <details><summary data-i18n="w_q2">What comes with the unit?</summary><p data-i18n="w_a2">Three furnished bedrooms, each with a bed and brand-new mattress, study table, wardrobe, fan, air-conditioner and curtains. The living room, dining area and kitchen are furnished too, with a fridge, microwave and kettle.</p></details>
-      <details><summary data-i18n="q3">What’s included in the rent?</summary><p data-i18n="w_a3">WiFi is included. Water and electricity are paid by the tenant according to the bills. Message me for the details.</p></details>
+      <details><summary data-i18n="q3">What’s included in the rent?</summary><p data-i18n="w_a3">Please message me for the rent and what is included — I’m happy to go through the details with you.</p></details>
       <details><summary data-i18n="q4">How does check-in work without keys?</summary><p data-i18n="a4">The unit has a smart lock that opens with a passcode. I’ll set up your personal passcode before you arrive.</p></details>
       <details><summary data-i18n="q5">Can I use the pool and gym?</summary><p data-i18n="w_a5">Yes. As a tenant of the unit, you can use the residence facilities — the infinity-edge pool, gym, playground, BBQ pit and more.</p></details>
-      <details><summary data-i18n="q8">Is there parking?</summary><p data-i18n="w_a8">Yes, one covered car park bay comes with the unit. Please ask me about the access card.</p></details>
+      <details><summary data-i18n="q8">Is there parking?</summary><p data-i18n="w_a8">Yes, a covered car park bay is available with the unit. Please ask me for the details.</p></details>
     </div>
     <div class="sec-cta reveal"><p data-i18n="cta5">Still have a question? I’m happy to help.</p><a class="btn btn-primary" data-wa="question" href="#contact"><svg class="ico"><use href="#i-chat"/></svg><span data-i18n="cb5">Ask me on WhatsApp</span></a></div>
   </div>
@@ -762,14 +751,11 @@ const ZH = {
   g4:"出入方便",
   g4d:"快速上 NKVE、DASH、LDP、联邦公路和 WCE。",
   lo_note:"距离为大约数字，参考公开资料。",
-  tm4:"租约",
-  tm4d:"需付租约费用",
-  tm_disc:"适用条款与细则。费用可能不时调整，具体收费请咨询确认。",
   ct_btn:"WhatsApp 咨询",
   ct_s:"需预约看房。",
   w_nav1:"卧室",
   w_nav2:"客厅空间",
-  w_nav3:"条件",
+  w_nav3:"详情",
   w_h_eyebrow:"整租单位 · Setia Alam Sunsuria Forum",
   w_h_title:"整个家都属于你，高高俯瞰 Setia Alam。",
   w_h_sub:"明亮、家具齐全的 3 房单位，有自己的客厅、厨房和阳台景观。门禁加智能门锁、租金含 WiFi，楼下就是度假村般的设施。",
@@ -788,30 +774,15 @@ const ZH = {
   w_s_eyebrow:"客厅空间",
   w_s_title:"住得舒服的客厅空间。",
   w_v_lede:"高楼层的窗户和阳台面向开阔明亮的景色——晨光让整个家感觉更宽敞。",
-  w_t_eyebrow:"重点条件",
-  w_t_title:"简单、清楚的条件。",
-  w_t1:"月租",
-  w_t2:"WiFi",
-  w_t2d:"含在租金里",
-  w_t3:"水电费",
-  w_t3d:"由租客按账单缴付",
-  w_t4:"车位",
-  w_t4d:"1 个有盖车位",
-  w_t6:"最短租期",
-  w_t7:"预付租金",
-  w_t8:"押金",
-  w_t9:"水电押金",
-  w_t7d:"1 个月（RM 2,800）",
-  w_t8d:"2 个月（RM 5,600）",
-  w_t9d:"1 个月（RM 2,800）",
-  w_t10:"门禁卡",
-  w_tbc:"待确认",
+  w_t_eyebrow:"租务详情",
+  w_t_title:"租金与条件，欢迎直接询问。",
+  w_t_d:"租金、押金和租约条件会直接与你说明——WhatsApp 我，我会逐项跟你讲解。",
   w_a1:"可以。你可以先在本页浏览照片和影片，再预约到现场看房。",
   w_q2:"单位里有什么？",
   w_a2:"三间家具齐全的卧室，每间都有床（全新床垫）、书桌、衣柜、风扇、冷气和窗帘。客厅、饭厅和厨房也配有家具，厨房有冰箱、微波炉和电热水壶。",
-  w_a3:"租金含 WiFi。水费和电费由租客按账单缴付。详情欢迎私讯我。",
+  w_a3:"租金及包含的项目，请私讯我，我很乐意逐项为你说明。",
   w_a5:"可以。作为本单位的租客，你可以使用大楼的设施——无边际泳池、健身房、游乐场、BBQ 区等。",
-  w_a8:"有，单位附带 1 个有盖车位。门禁卡的事欢迎询问我。",
+  w_a8:"有，单位可提供 1 个有盖车位。详情欢迎询问我。",
   w_ct_title:"想亲自来看看吗？",
   w_ct_d:"WhatsApp 我，我们约个时间让你来看单位。",
   w_ft1:"Sunsuria Forum Residence 整租单位。所有照片和影片均为本单位实拍。",
